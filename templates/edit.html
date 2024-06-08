@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message</title>
+</head>
+<body>
+    <br>
+    <br><br>
+    {% for x in data %}
+    <form method="post">
+        {% csrf_token %}
+        <table  align="center">
+            <tr>
+                <th>User Name : </th>
+                <td><input type="text" name="uname" value="{{x.name}}"></td>
+            </tr>
+            <tr>
+                <th>Email : </th>
+                <td><input type="email" name="email" value="{{x.email}}"></td>
+            </tr>
+            <tr>
+                <th>Contact : </th>
+                <td><input type="text" name="mob" value="{{x.mob}}"></td>
+            </tr>
+            <tr>
+                <th>Message : </th>
+                <td><textarea row="3" col="10" name="msg" >{{x.msg}}</textarea></td>
+            </tr>
+            <tr>
+                <th colspan="2"><input type="submit" value="Send Message"></th>
+            </tr>
+        </table>
+
+
+    </form>
+
+    {% endfor %}
+</body>
+</html>
